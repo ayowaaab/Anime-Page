@@ -30,7 +30,7 @@ function Carousel() {
             <Button size={'lg'} bg={'purple.700'}>Play Now</Button>
             <RadioGroup>
               <HStack gap={5}>
-                <Radio defaultChecked colorScheme='purple' value="1"></Radio>
+                <Radio colorScheme='purple' value="1"></Radio>
                 <Radio colorScheme='purple' value="2"></Radio>
                 <Radio colorScheme='purple' value="3"></Radio>
                 <Radio colorScheme='purple' value="4"></Radio>
@@ -41,6 +41,8 @@ function Carousel() {
         </VStack>
         <Image order={{base:'1',md:'2',xl:'2'}} src="carouselGojo.jpg" borderRadius={30} height={'100%'} objectFit={'cover'} />
       </Grid>
+
+   
     </>
   );
 }

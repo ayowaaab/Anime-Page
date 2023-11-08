@@ -4,7 +4,6 @@ import Main from "./component/mainComponent/Main";
 import "./App.css";
 import Footer from "./component/footerComponent/Footer";
 import Carousel from "./component/carouselComponent/Carousel";
-
 function App() {
   return (
     <>

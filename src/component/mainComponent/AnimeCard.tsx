@@ -3,12 +3,9 @@ import {
   Card,
   Image,
   Button,
-  Heading,
-  CardBody,
   CardFooter,
-  Stack,
-  ButtonGroup,
-  Divider,
+  Text,
+  HStack,
 } from "@chakra-ui/react";
 
 interface Props {
@@ -19,42 +16,34 @@ interface Props {
 function AnimeCard({ img, title }: Props) {
   return (
     <>
-      <Stack align={"center"} w={"full"}>
-        <Card
-          boxShadow={"0 0px 15px rgba(0, 0, 0, 0.2)"}
-          px={3}
-          _hover={{ transform: "scale(1.05)" }}
-          transition={".3s"}
-        >
-          <CardBody p={3}>
-            <Stack>
-              <Image
-                src={img}
-                alt="Green double couch with wooden legs"
-                borderRadius="lg"
-                objectFit={"cover"}
-                h={'xs'}
-              />
-            </Stack>
-            <Stack my={3} justifyContent={"center"} align={"center"}>
-              <Heading textAlign={"center"} size="sm">
-                {title}
-              </Heading>
-            </Stack>
-          </CardBody>
-          <Divider />
-          <CardFooter justifyContent={"center"} py={2}>
-            <ButtonGroup>
-              <Button px={10} colorScheme="blue">
-                Watch 
-              </Button>
-              <Button borderRadius={"full"} p={0} colorScheme="telegram">
-                <AddIcon />
-              </Button>
-            </ButtonGroup>
-          </CardFooter>
-        </Card>
-      </Stack>
+    
+      <Card
+        justifySelf={"center"}
+        bg={"purple.900"}
+        w={"full"}
+        h={"300px"}
+        overflow={"hidden"}
+        transition={'.3s'}
+        _hover={{
+          transform:'scale(1.05)'
+        }}
+      >
+        <Image
+          src={img}
+          alt="Green double couch with wooden legs"
+          objectFit={"cover"}
+          h={"70%"}
+        />
+        <CardFooter justifyContent={"center"} flexDirection={"column"} p={0}>
+          <Text fontWeight={'500'} fontSize={{base:'xs',sm:'xs',xl:'sm','2xl':'md'}} m={0} p={2} textAlign={"center"}>
+            {title}
+          </Text>
+          <HStack gap={3} px={5} justifyContent={"center"}>
+            <Button colorScheme="purple">Watch</Button>
+            <Button colorScheme="gray"><AddIcon /></Button>
+          </HStack>
+        </CardFooter>
+      </Card>
     </>
   );
 }

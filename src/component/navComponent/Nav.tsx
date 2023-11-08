@@ -93,15 +93,6 @@ function Nav() {
               <Button>Anime</Button>
               <Contact />
             </HStack>
-            <HStack>
-              <Button
-                onClick={() => {
-                  toggleColorMode();
-                }}
-              >
-                {colorMode !== "dark" ? <MoonIcon /> : <SunIcon />}
-              </Button>
-            </HStack>
           </HStack>
         </Stack>
         <Divider />
@@ -190,15 +181,7 @@ function Nav() {
               </DrawerBody>
             </DrawerContent>
           </Drawer>
-          <Button
-            size={"lg"}
-            borderRadius={"0 0 0 15px"}
-            onClick={() => {
-              toggleColorMode();
-            }}
-          >
-            {colorMode !== "dark" ? <MoonIcon /> : <SunIcon />}
-          </Button>
+          <AllArticles />
         </HStack>
       </Show>
     </>
