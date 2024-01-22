@@ -4,17 +4,19 @@ import Main from "./component/mainComponent/Main";
 import "./App.css";
 import Footer from "./component/footerComponent/Footer";
 import Carousel from "./component/carouselComponent/Carousel";
+import { items } from "./db";
 function App() {
+
   return (
     <>
       <Grid templateColumns={"repeat(4, 1fr)"} gap={5}>
         <GridItem colSpan={{ base: 4 }}>
           <Nav />
         </GridItem>
-        <GridItem colSpan={{ base: 4 }}>
-          <Carousel />
-        </GridItem>
 
+        <GridItem colSpan={{ base: 4 }}>
+          <Carousel items={items} />
+        </GridItem>
         <GridItem colSpan={{ base: 4, md: 4, xl: 4 }} mx={3} my={5}>
           <Main />
         </GridItem>

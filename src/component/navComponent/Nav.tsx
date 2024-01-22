@@ -3,7 +3,6 @@ import {
   HStack,
   Image,
   Stack,
-  useColorMode,
   Icon,
   Text,
   Link,
@@ -19,14 +18,12 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 import logo from "../../assets/Logo.svg";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import Contact from "./Contact";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import AllArticles from "../articleComponent/AllArticles";
 
 function Nav() {
-  const { toggleColorMode, colorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -44,18 +41,12 @@ function Nav() {
             <HStack>
               <Image
                 filter={
-                  colorMode === "dark"
-                    ? "invert(40%) sepia(61%) saturate(2269%) hue-rotate(165deg) brightness(101%) contrast(101%)"
-                    : ""
+                  "invert(40%) sepia(61%) saturate(2269%) hue-rotate(165deg) brightness(101%) contrast(101%)"
                 }
                 src={logo}
                 w={"50px"}
               />
-              <Text
-                fontSize={"2xl"}
-                as={"b"}
-                color={colorMode === "dark" ? "cyan.400" : "green.700"}
-              >
+              <Text color={"cyan.400"} fontSize={"2xl"} as={"b"}>
                 Hope
               </Text>
             </HStack>
@@ -112,16 +103,12 @@ function Nav() {
                 <HStack>
                   <Image
                     filter={
-                      colorMode === "dark"
-                        ? "invert(40%) sepia(61%) saturate(2269%) hue-rotate(165deg) brightness(101%) contrast(101%)"
-                        : ""
+                      "invert(40%) sepia(61%) saturate(2269%) hue-rotate(165deg) brightness(101%) contrast(101%)"
                     }
                     src={logo}
                     w={"50px"}
                   />
-                  <Text color={colorMode === "dark" ? "cyan.400" : "green.700"}>
-                    Hope
-                  </Text>
+                  <Text color={"cyan.400"}>Hope</Text>
                 </HStack>
               </DrawerHeader>
 

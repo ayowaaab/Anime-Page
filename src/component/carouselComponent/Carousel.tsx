@@ -1,48 +1,89 @@
-import {
-  Button,
-  Grid,
-  HStack,
-  Heading,
-  Image,
-  Radio,
-  RadioGroup,
-  Stack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Heading, Image, Text } from "@chakra-ui/react";
+import styles from "./carousel.module.css";
+interface Props {
+  description: string;
+  heading: string;
+  img: string;
+  id: number;
+}
+interface caroselProps {
+  items: Props[];
+}
 
-function Carousel() {
+function Carousel({ items }: caroselProps) {
+  console.log(items);
   return (
     <>
-      <Grid templateColumns={{base:'1fr',md:"repeat(2,1fr)",xl:"repeat(2,1fr)"}} px={5} gap={3}>
-        <VStack align={"flex-start"} justifyContent={"space-between"} order={{base:'2',md:'1',xl:'1'}}>
-          <Heading>JUJUTSU KAISEN</Heading>
-          <Text>
-            "The right death" is what a boy fights for in the midst of the
-            curses that plague our daily lives. These curses are born from
-            negative emotions like hardship, regret, and shame, and they can
-            wreak havoc on people's lives, often resulting in death. Ironically,
-            the only way to banish these curses is by invoking another curse.
-            Itadori Yuji is an average high schooler with extraordinary physical
-            abilities. But when he consumes the finger
-          </Text>
-          <Stack spacing={15}>
-            <Button size={'lg'} bg={'purple.700'}>Play Now</Button>
-            <RadioGroup>
-              <HStack gap={5}>
-                <Radio colorScheme='purple' value="1"></Radio>
-                <Radio colorScheme='purple' value="2"></Radio>
-                <Radio colorScheme='purple' value="3"></Radio>
-                <Radio colorScheme='purple' value="4"></Radio>
-                <Radio colorScheme='purple' value="5"></Radio>
-              </HStack>
-            </RadioGroup>
-          </Stack>
-        </VStack>
-        <Image order={{base:'1',md:'2',xl:'2'}} src="carouselGojo.jpg" borderRadius={30} height={'100%'} objectFit={'cover'} />
-      </Grid>
+      <div
+        id="carouselExampleIndicators"
+        className="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-indicators">
+          {items.map((item, i) => (
+            <button
+              key={item.id}
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to={i}
+              className={i === 0 ? "active" : ""}
+              aria-current={i === 0 ? "true" : "false"}
+              aria-label={`Slide ${i}`}
+            ></button>
+          ))}
+        </div>
+        <div className="carousel-inner">
+          {items.map((item, i) => (
+            <div
+              key={item.id}
+              className={i === 0 ? "carousel-item active" : "carousel-item"}
+            >
+              <div className={styles.carouselDesc}>
+                <div className="d-flex flex-column px-3 w-100">
+                  <Heading>{item.heading}</Heading>
+                  <Text fontSize={20} >
+                    {item.description}
+                  </Text>
+                </div>
+                <Image
+                  boxSize={"full"}
+                  w={"100%"}
+                  h={"300px"}
+                  objectFit={"cover"}
+                  src={item.img}
+                  alt={item.img}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
 
-   
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
     </>
   );
 }

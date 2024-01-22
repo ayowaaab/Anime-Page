@@ -1,0 +1,10 @@
+.carouselDesc{
+    display: flex;
+    gap: 2rem;
+}
+@media (max-width:786px) {
+    .carouselDesc{
+        flex-direction: column-reverse;
+        
+    }
+}
