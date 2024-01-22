@@ -16,8 +16,9 @@ import {
   useDisclosure,
   VStack,
   DrawerCloseButton,
+
 } from "@chakra-ui/react";
-import logo from "../../assets/Logo.svg";
+import logo from "../../assets/Logo.png";
 import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import Contact from "./Contact";
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -40,14 +41,11 @@ function Nav() {
           <HStack gap={20}>
             <HStack>
               <Image
-                filter={
-                  "invert(40%) sepia(61%) saturate(2269%) hue-rotate(165deg) brightness(101%) contrast(101%)"
-                }
                 src={logo}
                 w={"50px"}
               />
-              <Text color={"cyan.400"} fontSize={"2xl"} as={"b"}>
-                Hope
+              <Text color={"#2FDFF3"} fontSize={"2xl"} as={"b"}>
+                AnimePage
               </Text>
             </HStack>
             <HStack gap={{ base: 5, md: 7, xl: 10 }}>
@@ -102,13 +100,11 @@ function Nav() {
               <DrawerHeader borderBottomWidth="1px" textAlign={"center"}>
                 <HStack>
                   <Image
-                    filter={
-                      "invert(40%) sepia(61%) saturate(2269%) hue-rotate(165deg) brightness(101%) contrast(101%)"
-                    }
+                 
                     src={logo}
                     w={"50px"}
                   />
-                  <Text color={"cyan.400"}>Hope</Text>
+                  <Text color={"#2FDFF3"}>AnimePage</Text>
                 </HStack>
               </DrawerHeader>
 
