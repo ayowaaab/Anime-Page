@@ -3,9 +3,9 @@ import {
   AlertIcon,
   AlertTitle,
   Grid,
-  HStack,
   Heading,
   Input,
+  Stack,
 } from "@chakra-ui/react";
 import AnimeCard from "./AnimeCard";
 import AnimeCardSkeleton from "./AnimeCardSkeleton";
@@ -24,17 +24,17 @@ function Main() {
 
   return (
     <>
-      <HStack justifyContent={"space-between"}>
-        <Heading size={{base:'md',xl:"lg"}} my={10} whiteSpace='nowrap'>
+      <Stack direction={['column',"row"]} mb={5} justifyContent={"space-between"}>
+        <Heading alignSelf={"center"} size={{base:'md',xl:"lg"}} m={0} whiteSpace='nowrap'>
           Recently Added :
         </Heading>
         <Input
-          width={'70%'}
+          width={'100%'}
           size={"lg"}
           placeholder="Search . . ."
           onChange={(e) => handelEvent(e.target.value)}
         />
-      </HStack>
+      </Stack>
 
       {error && (
         <Alert status="error">

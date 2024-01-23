@@ -11,7 +11,6 @@ interface caroselProps {
 }
 
 function Carousel({ items }: caroselProps) {
-  console.log(items);
   return (
     <>
       <div
@@ -41,13 +40,14 @@ function Carousel({ items }: caroselProps) {
               <div className={styles.carouselDesc}>
                 <div className="d-flex flex-column px-3 w-100">
                   <Heading>{item.heading}</Heading>
-                  <Text fontSize={20} >
+                  <Text fontSize={{ base: "15px", xl: "20px" }}>
                     {item.description}
                   </Text>
                 </div>
+
                 <Image
                   boxSize={"full"}
-                  w={"100%"}
+                  w={{ base: "100%", md: "50%" }}
                   h={"300px"}
                   objectFit={"cover"}
                   src={item.img}
